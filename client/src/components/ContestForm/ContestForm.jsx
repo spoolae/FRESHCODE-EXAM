@@ -11,7 +11,7 @@ import SelectInput from '../SelectInput/SelectInput';
 import FieldFileInput from '../InputComponents/FieldFileInput/FieldFileInput';
 import FormTextArea from '../InputComponents/FormTextArea/FormTextArea';
 import TryAgain from '../TryAgain/TryAgain';
-import Schems from '../../utils/validators/validationSchems';
+import Schems from '../../utils/validators/validationSchemas';
 import OptionalSelects from '../OptionalSelects/OptionalSelects';
 
 const variableOptions = {
@@ -46,6 +46,9 @@ class ContestForm extends React.Component {
       }
       case CONSTANTS.LOGO_CONTEST: {
         this.props.getData({ characteristic1: 'brandStyle' });
+        break;
+      }
+      default: {
         break;
       }
     }
