@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, NavLink, withRouter } from 'react-router-dom';
 import styles from './Header.module.sass';
 import CONSTANTS from '../../constants';
 import { clearUserStore } from '../../store/slices/userSlice';
@@ -116,11 +116,17 @@ class Header extends React.Component {
           </div>
         </div>
         <div className={styles.navContainer}>
-          <img
-            src={`${CONSTANTS.STATIC_IMAGES_PATH}blue-logo.png`}
+          <NavLink
+            to="/"
             className={styles.logo}
-            alt="blue_logo"
-          />
+            activeClassName={styles.activeLogo}
+            onClick={this.handleLogoClick}
+          >
+            <img
+              src={`${CONSTANTS.STATIC_IMAGES_PATH}blue-logo.png`}
+              alt="blue_logo"
+            />
+          </NavLink>
           <div className={styles.leftNav}>
             <div className={styles.nav}>
               <ul>
