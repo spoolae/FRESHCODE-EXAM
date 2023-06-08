@@ -32,6 +32,7 @@ class RegistrationForm extends React.Component {
   render() {
     const { submitting, auth, authClear } = this.props;
     const { error } = auth;
+
     const formInputClasses = {
       container: styles.inputContainer,
       input: styles.input,
@@ -39,6 +40,18 @@ class RegistrationForm extends React.Component {
       notValid: styles.notValid,
       valid: styles.valid,
     };
+
+    const initialValues = {
+      firstName: '',
+      lastName: '',
+      displayName: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+      role: CONSTANTS.CUSTOMER,
+      agreeOfTerms: false,
+    };
+
     return (
       <div className={styles.signUpFormContainer}>
         {error && (
@@ -53,16 +66,7 @@ class RegistrationForm extends React.Component {
           <h4>We always keep your name and email address private.</h4>
         </div>
         <Formik
-          initialValues={{
-            firstName: '',
-            lastName: '',
-            displayName: '',
-            email: '',
-            password: '',
-            confirmPassword: '',
-            role: CONSTANTS.CUSTOMER,
-            agreeOfTerms: false,
-          }}
+          initialValues={initialValues}
           onSubmit={this.clicked}
           validationSchema={Schems.RegistrationSchem}
         >

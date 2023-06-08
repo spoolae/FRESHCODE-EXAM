@@ -29,6 +29,11 @@ class LoginForm extends React.Component {
       valid: styles.valid,
     };
 
+    const initialValues = {
+      email: '',
+      password: '',
+    };
+
     return (
       <div className={styles.loginForm}>
         {error && (
@@ -40,10 +45,7 @@ class LoginForm extends React.Component {
         )}
         <h2>LOGIN TO YOUR ACCOUNT</h2>
         <Formik
-          initialValues={{
-            email: '',
-            password: '',
-          }}
+          initialValues={initialValues}
           onSubmit={this.clicked}
           validationSchema={Schems.LoginSchem}
         >
