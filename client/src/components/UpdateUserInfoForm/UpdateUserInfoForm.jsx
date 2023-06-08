@@ -5,7 +5,7 @@ import { clearUserError } from '../../store/slices/userSlice';
 import styles from './UpdateUserInfoForm.module.sass';
 import ImageUpload from '../InputComponents/ImageUpload/ImageUpload';
 import FormInput from '../FormInput/FormInput';
-import Schems from '../../utils/validators/validationSchemas';
+import Schems from '../../utils/validationSchemas';
 import Error from '../Error/Error';
 
 const UpdateUserInfoForm = (props) => {

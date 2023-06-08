@@ -4,7 +4,7 @@ import { Formik, Form } from 'formik';
 import FormInput from '../../../FormInput/FormInput';
 import styles from './CreateCatalog.module.sass';
 import { createCatalog } from '../../../../store/slices/chatSlice';
-import Schems from '../../../../utils/validators/validationSchemas';
+import Schems from '../../../../utils/validationSchemas';
 
 const CreateCatalog = (props) => {
   const click = (values) => {

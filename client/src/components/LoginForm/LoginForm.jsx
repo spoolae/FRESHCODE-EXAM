@@ -4,7 +4,7 @@ import { Form, Formik } from 'formik';
 import { checkAuth, clearAuth } from '../../store/slices/authSlice';
 import styles from './LoginForm.module.sass';
 import FormInput from '../FormInput/FormInput';
-import Schems from '../../utils/validators/validationSchemas';
+import Schems from '../../utils/validationSchemas';
 import Error from '../Error/Error';
 import CONSTANTS from '../../constants';
 
