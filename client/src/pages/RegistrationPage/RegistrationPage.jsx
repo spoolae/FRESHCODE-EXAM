@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import styles from './RegistrationPage.module.sass';
-import CONSTANTS from '../../constants';
+import CONSTANTS from '../../constants/constants';
 import { clearAuthError } from '../../store/slices/authSlice';
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
 import AuthenticationHeader from '../../components/Header/AuthenticationHeader';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Formik, Form } from 'formik';
-import CONTANTS from '../../constants';
+import CONTANTS from '../../constants/constants';
 import {
   addOffer,
   clearAddOfferError,

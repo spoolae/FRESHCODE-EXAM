@@ -3,7 +3,7 @@ import * as restController from '../../api/rest/restController';
 import { clearContestStore } from './contestCreationSlice';
 import { changeProfileViewMode } from './userProfileSlice';
 import { updateUser } from './userSlice';
-import CONSTANTS from '../../constants';
+import CONSTANTS from '../../constants/constants';
 import {
   decorateAsyncThunk,
   pendingReducer,
@@ -43,7 +43,7 @@ const reducers = {
   clearPaymentStore: () => initialState,
 };
 
-const extraReducers = builder => {
+const extraReducers = (builder) => {
   builder.addCase(pay.pending, pendingReducer);
   builder.addCase(pay.fulfilled, () => initialState);
   builder.addCase(pay.rejected, rejectedReducer);

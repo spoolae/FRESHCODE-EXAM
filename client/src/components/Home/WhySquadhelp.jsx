@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from './Home.module.sass';
-import CONSTANTS from '../../constants';
+import CONSTANTS from '../../constants/constants';
 
 const WhySquadhelp = () => {
   return (

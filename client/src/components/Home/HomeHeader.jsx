@@ -2,9 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './Home.module.sass';
-import CAROUSEL_CONSTANTS from '../../carouselConstants';
+import CAROUSEL_CONSTANTS from '../../constants/carouselConstants';
 import SliderBar from '../SlideBar/SlideBar';
-import CONSTANTS from '../../constants';
+import CONSTANTS from '../../constants/constants';
 
 const HomeHeader = () => {
   const [index, setIndex] = useState(0);

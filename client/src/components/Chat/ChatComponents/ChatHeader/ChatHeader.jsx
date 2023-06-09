@@ -7,7 +7,7 @@ import {
   changeChatBlock,
 } from '../../../../store/slices/chatSlice';
 import styles from './ChatHeader.module.sass';
-import CONSTANTS from '../../../../constants';
+import CONSTANTS from '../../../../constants/constants';
 
 const ChatHeader = (props) => {
   const changeFavorite = (data, event) => {

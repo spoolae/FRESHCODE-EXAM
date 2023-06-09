@@ -1,15 +1,15 @@
-import PrivateHoc from '../components/PrivateHoc/PrivateHoc';
-import CONSTANTS from '../constants';
+import CONSTANTS from '../constants/constants';
 import ContestCreationPage from '../pages/ContestCreation/ContestCreationPage';
 import Home from '../pages/Home/Home';
 import Payment from '../pages/Payment/Payment';
 import StartContestPage from '../pages/StartContestPage/StartContestPage';
-import OnlyNotAuthorizedUserHoc from './../components/OnlyNotAuthorizedUserHoc/OnlyNotAuthorizedUserHoc';
 import LoginPage from './../pages/LoginPage/LoginPage';
 import RegistrationPage from './../pages/RegistrationPage/RegistrationPage';
 import Dashboard from './../pages/Dashboard/Dashboard';
 import ContestPage from './../pages/ContestPage/ContestPage';
 import UserProfile from '../pages/UserProfile/UserProfile';
+import OnlyNotAuthorizedUserHoc from '../HOCs/OnlyNotAuthorizedUserHoc';
+import PrivateHoc from '../HOCs/PrivateHoc';
 
 const routes = [
   {

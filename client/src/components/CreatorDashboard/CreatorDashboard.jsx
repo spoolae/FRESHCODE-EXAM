@@ -14,7 +14,7 @@ import ContestsContainer from '../ContestsContainer/ContestsContainer';
 import ContestBox from '../ContestBox/ContestBox';
 import styles from './CreatorDashboard.module.sass';
 import TryAgain from '../TryAgain/TryAgain';
-import CONSTANTS from '../../constants';
+import CONSTANTS from '../../constants/constants';
 
 const types = [
   '',

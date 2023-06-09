@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import UpdateUserInfoForm from '../UpdateUserInfoForm/UpdateUserInfoForm';
 import { updateUser } from '../../store/slices/userSlice';
 import { changeEditModeOnUserProfile } from '../../store/slices/userProfileSlice';
-import CONSTANTS from '../../constants';
+import CONSTANTS from '../../constants/constants';
 import styles from './UserInfo.module.sass';
 
 const UserInfo = (props) => {

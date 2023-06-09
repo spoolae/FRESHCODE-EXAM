@@ -6,7 +6,7 @@ import styles from './LoginForm.module.sass';
 import FormInput from '../FormInput/FormInput';
 import Schems from '../../utils/validationSchemas';
 import Error from '../Error/Error';
-import CONSTANTS from '../../constants';
+import CONSTANTS from '../../constants/constants';
 
 class LoginForm extends React.Component {
   componentWillUnmount() {
