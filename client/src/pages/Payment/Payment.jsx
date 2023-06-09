@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import isEmpty from 'lodash/isEmpty';
+
 import { pay, clearPaymentStore } from '../../store/slices/paymentSlice';
 import PayForm from '../../components/PayForm/PayForm';
 import styles from './Payment.module.sass';
@@ -8,23 +9,31 @@ import CONSTANTS from '../../constants/constants';
 import Error from '../../components/Error/Error';
 
 const Payment = (props) => {
+  const { contests } = props.contestCreationStore;
+  const { error } = props.payment;
+
+  useEffect(() => {
+    if (isEmpty(contests)) {
+      props.history.replace('startContest');
+    }
+  }, [contests, props.history]);
+
   const pay = (values) => {
-    const { contests } = props.contestCreationStore;
-    const contestArray = [];
-    Object.keys(contests).forEach((key) =>
-      contestArray.push({ ...contests[key] })
-    );
+    const contestArray = Object.values(contests).map((contest) => ({
+      ...contest,
+      haveFile: !!contest.file,
+    }));
     const { number, expiry, cvc } = values;
     const data = new FormData();
-    for (let i = 0; i < contestArray.length; i++) {
-      data.append('files', contestArray[i].file);
-      contestArray[i].haveFile = !!contestArray[i].file;
-    }
+    contestArray.forEach((contest) => {
+      data.append('files', contest.file);
+    });
     data.append('number', number);
     data.append('expiry', expiry);
     data.append('cvc', cvc);
     data.append('contests', JSON.stringify(contestArray));
     data.append('price', '100');
+
     props.pay({
       data: {
         formData: data,
@@ -37,12 +46,6 @@ const Payment = (props) => {
     props.history.goBack();
   };
 
-  const { contests } = props.contestCreationStore;
-  const { error } = props.payment;
-  const { clearPaymentStore } = props;
-  if (isEmpty(contests)) {
-    props.history.replace('startContest');
-  }
   return (
     <div>
       <div className={styles.header}>
@@ -58,7 +61,7 @@ const Payment = (props) => {
             <Error
               data={error.data}
               status={error.status}
-              clearError={clearPaymentStore}
+              clearError={props.clearPaymentStore}
             />
           )}
           <PayForm sendRequest={pay} back={goBack} isPayForOrder />

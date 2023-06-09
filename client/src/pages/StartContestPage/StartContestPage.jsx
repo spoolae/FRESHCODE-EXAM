@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import { updateBundle } from '../../store/slices/bundleSlice';
 import BundleBox from '../../components/BundleBox/BundleBox';
 import CONSTANTS from '../../constants/constants';
@@ -14,12 +15,15 @@ const StartContestPage = (props) => {
   }
 
   const setBundle = (bundleStr) => {
-    const array = bundleStr.toLowerCase().split('+');
-    const bundleList = {};
-    bundleList.first = array[0];
-    for (let i = 0; i < array.length; i++) {
-      bundleList[array[i]] = i === array.length - 1 ? 'payment' : array[i + 1];
+    const bundleNames = bundleStr.toLowerCase().split('+');
+    const bundleList = { first: bundleNames[0] };
+
+    for (let i = 0; i < bundleNames.length; i++) {
+      const currentBundle = bundleNames[i];
+      bundleList[currentBundle] =
+        i === bundleNames.length - 1 ? 'payment' : bundleNames[i + 1];
     }
+
     props.choseBundle(bundleList);
     props.history.push(`/startContest/${bundleList.first}Contest`);
   };
