@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 import SpinnerLoader from '../components/Spinner/Spinner';
 import { getUser } from '../store/slices/userSlice';
@@ -11,6 +12,10 @@ const PrivateHoc = (Component, props) => {
         getUser();
       }
     }, [data, getUser]);
+
+    if (data === null) {
+      return <Redirect to="/login" />;
+    }
 
     return (
       <>
