@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import styles from './PayForm.module.sass';
 import { changeFocusOnCard } from '../../store/slices/paymentSlice';
 import PayInput from '../InputComponents/PayInput/PayInput';
-import Schems from '../../utils/validationSchemas';
+import Schemas from '../../utils/validationSchemas';
 
 const PayForm = (props) => {
   const changeFocusOnCard = (name) => {
@@ -30,7 +30,7 @@ const PayForm = (props) => {
           expiry: '',
         }}
         onSubmit={pay}
-        validationSchema={Schems.PaymentSchema}
+        validationSchema={Schemas.PaymentSchema}
       >
         {({ values }) => {
           const { name, number, expiry, cvc } = values;

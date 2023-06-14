@@ -11,7 +11,7 @@ import SelectInput from '../SelectInput/SelectInput';
 import FieldFileInput from '../InputComponents/FieldFileInput/FieldFileInput';
 import FormTextArea from '../InputComponents/FormTextArea/FormTextArea';
 import TryAgain from '../TryAgain/TryAgain';
-import Schems from '../../utils/validationSchemas';
+import Schemas from '../../utils/validationSchemas';
 import OptionalSelects from '../OptionalSelects/OptionalSelects';
 
 const variableOptions = {
@@ -80,7 +80,7 @@ class ContestForm extends React.Component {
               ...this.props.initialValues,
             }}
             onSubmit={this.props.handleSubmit}
-            validationSchema={Schems.ContestSchem}
+            validationSchema={Schemas.ContestSchem}
             innerRef={this.props.formRef}
             enableReinitialize
           >

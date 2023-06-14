@@ -1,11 +1,14 @@
-const bd = require('../../models');
+const bd = require('../../models/postgresModels');
 const NotFound = require('../../errors/UserNotFoundError');
 const ServerError = require('../../errors/ServerError');
 const bcrypt = require('bcrypt');
 
 module.exports.updateUser = async (data, userId, transaction) => {
-  const [updatedCount, [updatedUser]] = await bd.Users.update(data,
-    { where: { id: userId }, returning: true, transaction });
+  const [updatedCount, [updatedUser]] = await bd.Users.update(data, {
+    where: { id: userId },
+    returning: true,
+    transaction,
+  });
   if (updatedCount !== 1) {
     throw new ServerError('cannot update user');
   }

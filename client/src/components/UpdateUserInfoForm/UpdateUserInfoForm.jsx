@@ -5,7 +5,7 @@ import { clearUserError } from '../../store/slices/userSlice';
 import styles from './UpdateUserInfoForm.module.sass';
 import ImageUpload from '../InputComponents/ImageUpload/ImageUpload';
 import FormInput from '../FormInput/FormInput';
-import Schems from '../../utils/validationSchemas';
+import Schemas from '../../utils/validationSchemas';
 import Error from '../Error/Error';
 
 const UpdateUserInfoForm = (props) => {
@@ -14,7 +14,7 @@ const UpdateUserInfoForm = (props) => {
     <Formik
       onSubmit={onSubmit}
       initialValues={props.initialValues}
-      validationSchema={Schems.UpdateUserSchema}
+      validationSchema={Schemas.UpdateUserSchema}
     >
       <Form className={styles.updateContainer}>
         {error && (

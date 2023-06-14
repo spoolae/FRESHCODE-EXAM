@@ -4,7 +4,7 @@ import { Form, Formik } from 'formik';
 import { checkAuth, clearAuth } from '../../store/slices/authSlice';
 import styles from './LoginForm.module.sass';
 import FormInput from '../FormInput/FormInput';
-import Schems from '../../utils/validationSchemas';
+import Schemas from '../../utils/validationSchemas';
 import Error from '../Error/Error';
 import CONSTANTS from '../../constants/constants';
 
@@ -47,7 +47,7 @@ class LoginForm extends React.Component {
         <Formik
           initialValues={initialValues}
           onSubmit={this.clicked}
-          validationSchema={Schems.LoginSchem}
+          validationSchema={Schemas.LoginSchem}
         >
           <Form>
             <FormInput

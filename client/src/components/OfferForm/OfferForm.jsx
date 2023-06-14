@@ -9,7 +9,7 @@ import {
 import styles from './OfferForm.module.sass';
 import ImageUpload from '../InputComponents/ImageUpload/ImageUpload';
 import FormInput from '../FormInput/FormInput';
-import Schems from '../../utils/validationSchemas';
+import Schemas from '../../utils/validationSchemas';
 import Error from '../Error/Error';
 
 const OfferForm = (props) => {
@@ -56,8 +56,8 @@ const OfferForm = (props) => {
   const { valid, addOfferError, clearOfferError } = props;
   const validationSchema =
     props.contestType === CONTANTS.LOGO_CONTEST
-      ? Schems.LogoOfferSchema
-      : Schems.TextOfferSchema;
+      ? Schemas.LogoOfferSchema
+      : Schemas.TextOfferSchema;
   return (
     <div className={styles.offerContainer}>
       {addOfferError && (

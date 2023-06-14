@@ -8,7 +8,7 @@ import {
 } from '../../../../store/slices/chatSlice';
 import styles from './CatalogHeader.module.sass';
 import FormInput from '../../../FormInput/FormInput';
-import Schems from '../../../../utils/validationSchemas';
+import Schemas from '../../../../utils/validationSchemas';
 
 const CatalogListHeader = (props) => {
   const changeCatalogName = (values) => {
@@ -41,7 +41,7 @@ const CatalogListHeader = (props) => {
           <Formik
             onSubmit={changeCatalogName}
             initialValues={props.initialValues}
-            validationSchema={Schems.CatalogSchema}
+            validationSchema={Schemas.CatalogSchema}
           >
             <Form>
               <FormInput

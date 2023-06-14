@@ -1,16 +1,15 @@
-const bd = require('../models');
-const NotFound = require('../errors/UserNotFoundError');
+const bd = require('../models/postgresModels');
 const RightsError = require('../errors/RightsError');
 const ServerError = require('../errors/ServerError');
-const CONSTANTS = require('../constants');
+const CONSTANTS = require('../constants/constants');
 
 module.exports.parseBody = (req, res, next) => {
   req.body.contests = JSON.parse(req.body.contests);
   for (let i = 0; i < req.body.contests.length; i++) {
-    if (req.body.contests[ i ].haveFile) {
+    if (req.body.contests[i].haveFile) {
       const file = req.files.splice(0, 1);
-      req.body.contests[ i ].fileName = file[ 0 ].filename;
-      req.body.contests[ i ].originalFileName = file[ 0 ].originalname;
+      req.body.contests[i].fileName = file[0].filename;
+      req.body.contests[i].originalFileName = file[0].originalname;
     }
   }
   next();
@@ -28,7 +27,7 @@ module.exports.canGetContest = async (req, res, next) => {
         where: {
           id: req.headers.contestid,
           status: {
-            [ bd.Sequelize.Op.or ]: [
+            [bd.Sequelize.Op.or]: [
               CONSTANTS.CONTEST_STATUS_ACTIVE,
               CONSTANTS.CONTEST_STATUS_FINISHED,
             ],
@@ -48,7 +47,6 @@ module.exports.onlyForCreative = (req, res, next) => {
   } else {
     next();
   }
-
 };
 
 module.exports.onlyForCustomer = (req, res, next) => {
@@ -70,8 +68,9 @@ module.exports.canSendOffer = async (req, res, next) => {
       },
       attributes: ['status'],
     });
-    if (result.get({ plain: true }).status ===
-      CONSTANTS.CONTEST_STATUS_ACTIVE) {
+    if (
+      result.get({ plain: true }).status === CONSTANTS.CONTEST_STATUS_ACTIVE
+    ) {
       next();
     } else {
       return next(new RightsError());
@@ -79,7 +78,6 @@ module.exports.canSendOffer = async (req, res, next) => {
   } catch (e) {
     next(new ServerError());
   }
-
 };
 
 module.exports.onlyForCustomerWhoCreateContest = async (req, res, next) => {
@@ -106,7 +104,7 @@ module.exports.canUpdateContest = async (req, res, next) => {
       where: {
         userId: req.tokenData.userId,
         id: req.body.contestId,
-        status: { [ bd.Sequelize.Op.not ]: CONSTANTS.CONTEST_STATUS_FINISHED },
+        status: { [bd.Sequelize.Op.not]: CONSTANTS.CONTEST_STATUS_FINISHED },
       },
     });
     if (!result) {
@@ -117,4 +115,3 @@ module.exports.canUpdateContest = async (req, res, next) => {
     next(new ServerError());
   }
 };
-

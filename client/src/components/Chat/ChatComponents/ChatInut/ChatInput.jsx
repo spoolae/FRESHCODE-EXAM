@@ -5,7 +5,7 @@ import { sendMessage } from '../../../../store/slices/chatSlice';
 import styles from './ChatInput.module.sass';
 import CONSTANTS from '../../../../constants/constants';
 import FormInput from '../../../FormInput/FormInput';
-import Schems from '../../../../utils/validationSchemas';
+import Schemas from '../../../../utils/validationSchemas';
 
 const ChatInput = (props) => {
   const submitHandler = (values, { resetForm }) => {
@@ -22,7 +22,7 @@ const ChatInput = (props) => {
       <Formik
         onSubmit={submitHandler}
         initialValues={{ message: '' }}
-        validationSchema={Schems.MessageSchema}
+        validationSchema={Schemas.MessageSchema}
       >
         <Form className={styles.form}>
           <FormInput

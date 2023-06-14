@@ -8,7 +8,7 @@ import FormInput from '../FormInput/FormInput';
 import RoleInput from '../RoleInput/RoleInput';
 import AgreeTermOfServiceInput from '../AgreeTermOfServiceInput/AgreeTermOfServiceInput';
 import CONSTANTS from '../../constants/constants';
-import Schems from '../../utils/validationSchemas';
+import Schemas from '../../utils/validationSchemas';
 
 class RegistrationForm extends React.Component {
   componentWillUnmount() {
@@ -68,7 +68,7 @@ class RegistrationForm extends React.Component {
         <Formik
           initialValues={initialValues}
           onSubmit={this.clicked}
-          validationSchema={Schems.RegistrationSchem}
+          validationSchema={Schemas.RegistrationSchem}
         >
           <Form>
             <div className={styles.row}>
